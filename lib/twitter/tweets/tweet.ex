@@ -4,6 +4,7 @@ defmodule Twitter.Tweets.Tweet do
 
   schema "tweets" do
     field :body, :string
+    belongs_to :user, Twitter.Users.User
 
     timestamps()
   end
@@ -11,7 +12,7 @@ defmodule Twitter.Tweets.Tweet do
   @doc false
   def changeset(tweet, attrs) do
     tweet
-    |> cast(attrs, [:body])
-    |> validate_required([:body])
+    |> cast(attrs, [:body, :user_id])
+    |> validate_required([:body, :user_id])
   end
 end

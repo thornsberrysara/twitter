@@ -19,6 +19,7 @@ defmodule Twitter.Tweets do
   """
   def list_tweets do
     Repo.all(Tweet)
+    |> Repo.preload(:user)
   end
 
   @doc """

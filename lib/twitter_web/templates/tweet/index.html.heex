@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Body</th>
+      <th>Username</th>
 
       <th></th>
     </tr>
@@ -12,6 +13,7 @@
 <%= for tweet <- @tweets do %>
     <tr>
       <td><%= tweet.body %></td>
+      <td><%= tweet.user.email %></td>
 
       <td>
         <span><%= link "Show", to: Routes.tweet_path(@conn, :show, tweet) %></span>
