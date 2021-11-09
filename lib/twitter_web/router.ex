@@ -16,6 +16,7 @@ defmodule TwitterWeb.Router do
 
   scope "/", TwitterWeb do
     pipe_through :browser
+    resources "/tweets", TweetController
 
     get "/", PageController, :index
   end
